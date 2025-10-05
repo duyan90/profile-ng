@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+/* Prevent anchor content from being hidden behind fixed header */
+section { scroll-margin-top: 96px; }
+
+/* Global light/dark/pink backgrounds and text */
+body { @apply bg-white text-gray-900 transition-colors duration-300; }
+.dark body { @apply bg-gray-950 text-gray-100; }
+.pink body { @apply bg-pink-50 text-pink-900; }
+.pink .dark body { @apply bg-pink-950 text-pink-100; }
+
+/* Header theme support */
+.pink header { @apply bg-pink-50/80; }
+.pink .dark header { @apply bg-pink-950/70; }

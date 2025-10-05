@@ -1,0 +1,33 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { siteConfig } from '../../config/site-config';
+
+@Component({
+  selector: 'app-about',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <section id="about" class="p-8 sm:p-12 md:p-16 lg:p-24 bg-white dark:bg-gray-950">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <div class="lg:col-span-4">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900 dark:text-gray-100">About Me</h2>
+          <div class="w-[75px] h-[5px] mt-2 rounded-full" [style.background-color]="accentColor"></div>
+        </div>
+        <div class="lg:col-span-8 space-y-8">
+          <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600 dark:text-gray-300">{{ aboutMe }}</p>
+          <div class="pt-4">
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200" *ngFor="let skill of skills">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  styles: `:host{display:block}`
+})
+export class AboutComponent {
+  aboutMe = siteConfig.aboutMe.trim();
+  skills = siteConfig.skills;
+  accentColor = siteConfig.accentColor;
+}
